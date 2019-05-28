@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width initial-scale=1 user-scalable=no">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="css/index.css">
+
+</head>
+<body>
+<div id="wrap">
+    <header>
+        <!--header top-->
+        <div id="headerTop">
+            <h1 id="logo">
+                <a href="javascript:;">
+                    <img src="img/logo.png" alt="">
+                </a>
+            </h1>
+
+            <a id="menuBtn" href="javascript:;" class="menuBtn_close"></a>
+            <!--picture combination technology-->
+
+
+            <div id="nav" >
+                <a href="#" id="searchBtn">search</a>
+                <a href="#">login</a>
+                <a href="#">register</a>
+            </div>
+        </div>
+        <!--bottom of the header-->
+        <form id="search">
+            <input type="text" placeholder="Search">
+            <input type="submit" value="search" >
+        </form>
+
+    </header>
+
+</div>
+
+<script type="text/javascript">
+    //cancel blowser default event
+    document.addEventListener('touchstart',function(event){
+        event.preventDefault()
+    })
+
+    // rem adaption
+    //     var doc=document,
+    //         win=window,
+    //         docEl=doc.documentElement;
+
+        var width = document.documentElement.getBoundingClientRect().width/16;
+        var styleN = document.createElement("style");
+        styleN.innerHTML='html{font-size:'+width+'px !important}';
+        document.head.appendChild(styleN);
+
+        // 'input' get or lose focus
+        var inputNode=document.querySelector("#search [type='text']");
+        inputNode.addEventListener("touchstart",function(event){
+            inputNode.focus();
+            event.stopPropagation();
+        });
+        document.addEventListener("touchstart",function(){
+            inputNode.blur()
+        })
+
+</script>
+
+</body>
+</html>
